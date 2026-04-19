@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — JMK Autos | Ikotun Egbe, Lagos</title>
+<meta name="description" content="Get in touch with JMK Autos. Visit us at Ikotun Egbe, Lagos or reach us on WhatsApp, phone or email. We respond within minutes.">
+<link rel="icon" type="image/png" href="./assets/images/favicon-32x32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --red:#C8102E;--red-dark:#9B0C22;--red-light:#FFF0F2;
+  --dark:#0D1117;--dark-2:#161B25;--dark-3:#1F2535;
+  --gray-700:#374151;--gray-500:#6B7280;--gray-400:#9CA3AF;
+  --gray-300:#D1D5DB;--gray-200:#E5E7EB;--gray-100:#F3F4F6;--white:#FFFFFF;
+  --font-d:'Bebas Neue',sans-serif;--font-b:'DM Sans',sans-serif;
+  --r-sm:8px;--r:14px;--r-lg:24px;
+  --ease:cubic-bezier(0.4,0,0.2,1);--spring:cubic-bezier(0.34,1.56,0.64,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-b);background:var(--gray-100);color:var(--dark);overflow-x:hidden;line-height:1.6}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+button{font-family:var(--font-b);cursor:pointer;border:none;background:none}
+ul{list-style:none}
+
+/* ── LOADER ── */
+#loader{position:fixed;inset:0;background:var(--dark);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:32px;transition:opacity .7s,visibility .7s}
+#loader.gone{opacity:0;visibility:hidden;pointer-events:none}
+@keyframes lFill{from{width:0}to{width:100%}}
+@keyframes lPulse{0%,100%{opacity:1}50%{opacity:.6}}
+
+/* ── TOPBAR ── */
+.topbar{background:var(--dark-2);padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.topbar-inner{max-width:1340px;margin:0 auto;padding:0 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.tb-item{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.65);transition:color .2s}
+.tb-item:hover{color:var(--white)}
+.tb-item svg{flex-shrink:0;opacity:.7}
+.tb-cta{display:flex;align-items:center;gap:8px;background:var(--red);color:var(--white);font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;padding:6px 16px;border-radius:100px;transition:background .2s}
+.tb-cta:hover{background:var(--red-dark)}
+
+/* ── NAVBAR ── */
+.navbar{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,.07);transition:box-shadow .3s}
+.navbar.scrolled{box-shadow:0 4px 30px rgba(0,0,0,.1)}
+.nav-inner{max-width:1340px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{display:flex;align-items:center;gap:12px}
+.nav-logo-mark{width:44px;height:44px;background:var(--dark);border-radius:10px;display:flex;align-items:center;justify-content:center;transition:transform .3s var(--spring)}
+.nav-logo:hover .nav-logo-mark{transform:rotate(-5deg) scale(1.05)}
+.nav-logo-text strong{display:block;font-family:var(--font-d);font-size:24px;letter-spacing:2px;color:var(--dark);line-height:1}
+.nav-logo-text span{font-size:11px;font-weight:500;color:var(--gray-500);letter-spacing:1.5px;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links a{font-size:14px;font-weight:500;color:var(--gray-700);padding:8px 16px;border-radius:var(--r-sm);transition:color .2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:4px;left:50%;transform:translateX(-50%);width:0;height:2px;background:var(--red);border-radius:2px;transition:width .25s}
+.nav-links a:hover::after,.nav-links a.active::after{width:20px}
+.nav-links a:hover,.nav-links a.active{color:var(--dark)}
+.nav-btn-consult{display:flex;align-items:center;gap:8px;background:var(--red);color:var(--white);font-size:14px;font-weight:600;padding:10px 22px;border-radius:var(--r-sm);transition:background .2s,transform .2s}
+.nav-btn-consult:hover{background:var(--red-dark);transform:translateY(-2px)}
+.hamburger{display:none;flex-direction:column;gap:5px;padding:8px;border-radius:var(--r-sm)}
+.hamburger span{display:block;width:22px;height:2px;background:var(--dark);border-radius:2px;transition:all .35s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-nav{position:fixed;inset:0;background:var(--dark);z-index:999;display:flex;flex-direction:column;padding:100px 40px 40px;gap:4px;transform:translateX(100%);transition:transform .45s var(--ease);overflow-y:auto}
+.mobile-nav.open{transform:translateX(0)}
+.mobile-nav a{font-size:28px;font-family:var(--font-d);letter-spacing:2px;color:rgba(255,255,255,.7);padding:14px 0;border-bottom:1px solid rgba(255,255,255,.07);transition:color .2s,padding-left .2s}
+.mobile-nav a:hover{color:var(--white);padding-left:12px}
+.mobile-nav-close{position:absolute;top:24px;right:28px;width:40px;height:40px;border:1px solid rgba(255,255,255,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);transition:all .2s}
+.mobile-nav-close:hover{background:var(--red);border-color:var(--red);color:var(--white)}
+.mobile-nav-wa{margin-top:24px;background:var(--red);color:var(--white);font-size:15px;font-weight:600;padding:14px 24px;border-radius:var(--r-sm);text-align:center;display:flex;align-items:center;justify-content:center;gap:10px}
+
+/* ── HERO ── */
+.contact-hero{
+  background:var(--dark);
+  padding:80px 0 70px;
+  position:relative;
+  overflow:hidden;
+}
+.contact-hero::before{
+  content:'';
+  position:absolute;top:-60px;right:-60px;
+  width:400px;height:400px;
+  background:radial-gradient(circle,rgba(200,16,46,.15) 0%,transparent 70%);
+  pointer-events:none;
+}
+.contact-hero::after{
+  content:'CONTACT';
+  position:absolute;right:-20px;top:50%;transform:translateY(-50%);
+  font-family:var(--font-d);font-size:180px;letter-spacing:-4px;
+  color:rgba(255,255,255,.03);line-height:1;pointer-events:none;
+  white-space:nowrap;
+}
+.hero-inner{max-width:1340px;margin:0 auto;padding:0 32px}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(200,16,46,.15);border:1px solid rgba(200,16,46,.3);
+  color:var(--red);font-size:12px;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;padding:7px 16px;border-radius:100px;
+  margin-bottom:24px;
+}
+.hero-tag span{width:6px;height:6px;border-radius:50%;background:var(--red);animation:blink 1.5s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-inner h1{
+  font-family:var(--font-d);
+  font-size:clamp(52px,7vw,96px);
+  letter-spacing:2px;
+  color:var(--white);
+  line-height:.95;
+  margin-bottom:20px;
+}
+.hero-inner h1 span{color:var(--red)}
+.hero-inner p{font-size:16px;color:rgba(255,255,255,.5);max-width:520px;font-weight:300;line-height:1.8}
+
+/* ── QUICK CONTACT STRIP ── */
+.quick-strip{background:var(--red);padding:0}
+.quick-strip-inner{
+  max-width:1340px;margin:0 auto;padding:0 32px;
+  display:grid;grid-template-columns:repeat(3,1fr);
+}
+.qs-item{
+  display:flex;align-items:center;gap:16px;
+  padding:22px 0;
+  border-right:1px solid rgba(255,255,255,.15);
+  padding-right:32px;padding-left:0;
+  transition:background .2s;
+}
+.qs-item:not(:first-child){padding-left:32px}
+.qs-item:last-child{border-right:none}
+.qs-icon{
+  width:46px;height:46px;border-radius:10px;
+  background:rgba(255,255,255,.15);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.qs-text strong{display:block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:3px}
+.qs-text span{font-size:15px;font-weight:600;color:var(--white)}
+.qs-text a{color:var(--white);transition:opacity .2s}
+.qs-text a:hover{opacity:.8}
+
+/* ── MAIN LAYOUT ── */
+.contact-body{max-width:1340px;margin:0 auto;padding:64px 32px 80px;display:grid;grid-template-columns:1fr 420px;gap:40px;align-items:start}
+
+/* ── FORM CARD ── */
+.form-card{background:var(--white);border-radius:var(--r-lg);border:1.5px solid var(--gray-200);overflow:hidden}
+.form-card-hdr{background:var(--dark);padding:28px 32px}
+.form-card-hdr h2{font-family:var(--font-d);font-size:32px;letter-spacing:2px;color:var(--white);margin-bottom:6px}
+.form-card-hdr p{font-size:13px;color:rgba(255,255,255,.45)}
+.form-card-body{padding:32px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.form-group:last-of-type{margin-bottom:0}
+.form-label{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--gray-500)}
+.form-label span{color:var(--red);margin-left:2px}
+.form-input{
+  padding:12px 14px;
+  border:1.5px solid var(--gray-200);
+  border-radius:var(--r-sm);
+  font-size:14px;font-family:var(--font-b);color:var(--dark);
+  background:var(--white);outline:none;
+  transition:border-color .2s,box-shadow .2s;
+}
+.form-input:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(200,16,46,.08)}
+.form-input::placeholder{color:var(--gray-300)}
+textarea.form-input{min-height:130px;resize:vertical;line-height:1.7}
+select.form-input{appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%236B7280' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;}
+.submit-btn{
+  width:100%;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--red);color:var(--white);
+  font-size:15px;font-weight:700;font-family:var(--font-b);
+  padding:15px;border-radius:var(--r-sm);border:none;cursor:pointer;
+  transition:background .2s,transform .2s,box-shadow .2s;
+  margin-top:24px;
+}
+.submit-btn:hover{background:var(--red-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,16,46,.3)}
+.form-note{font-size:12px;color:var(--gray-400);text-align:center;margin-top:12px;display:flex;align-items:center;justify-content:center;gap:6px}
+
+/* ── SIDEBAR ── */
+.contact-sidebar{}
+
+/* INFO CARD */
+.info-card{
+  background:var(--white);
+  border-radius:var(--r-lg);
+  border:1.5px solid var(--gray-200);
+  overflow:hidden;
+  margin-bottom:20px;
+}
+.info-card-hdr{background:var(--dark);padding:20px 24px;display:flex;align-items:center;gap:12px}
+.info-card-hdr h3{font-family:var(--font-d);font-size:22px;letter-spacing:2px;color:var(--white)}
+.info-card-hdr svg{color:var(--red)}
+.info-card-body{padding:24px}
+.contact-item{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:14px 0;
+  border-bottom:1px solid var(--gray-100);
+}
+.contact-item:last-child{border-bottom:none;padding-bottom:0}
+.contact-item-icon{
+  width:40px;height:40px;border-radius:10px;
+  background:var(--red-light);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.contact-item-icon svg{color:var(--red)}
+.contact-item-text{}
+.contact-item-text strong{display:block;font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--gray-400);margin-bottom:3px}
+.contact-item-text span,.contact-item-text a{font-size:14px;font-weight:600;color:var(--dark);transition:color .2s}
+.contact-item-text a:hover{color:var(--red)}
+.contact-item-text small{display:block;font-size:12px;color:var(--gray-400);margin-top:2px}
+
+/* HOURS CARD */
+.hours-card{
+  background:var(--white);
+  border-radius:var(--r-lg);
+  border:1.5px solid var(--gray-200);
+  overflow:hidden;
+  margin-bottom:20px;
+}
+.hours-hdr{background:var(--dark);padding:20px 24px;display:flex;align-items:center;gap:12px}
+.hours-hdr h3{font-family:var(--font-d);font-size:22px;letter-spacing:2px;color:var(--white)}
+.hours-hdr svg{color:var(--red)}
+.hours-body{padding:20px 24px}
+.hours-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--gray-100);font-size:14px}
+.hours-row:last-child{border-bottom:none;padding-bottom:0}
+.hours-day{font-weight:600;color:var(--dark)}
+.hours-time{color:var(--gray-500);font-weight:500}
+.hours-time.open{color:#059669;font-weight:700}
+.hours-time.closed{color:#DC2626}
+.hours-badge{
+  display:flex;align-items:center;gap:6px;
+  background:#D1FAE5;color:#065F46;
+  font-size:11px;font-weight:700;
+  padding:4px 12px;border-radius:100px;
+  margin-top:16px;
+}
+.hours-badge span{width:6px;height:6px;border-radius:50%;background:#059669;animation:blink 1.5s infinite}
+
+/* WA CTA CARD */
+.wa-card{
+  background:var(--dark);
+  border-radius:var(--r-lg);
+  padding:28px;
+  margin-bottom:20px;
+  position:relative;overflow:hidden;
+}
+.wa-card::before{
+  content:'';
+  position:absolute;top:-40px;right:-40px;
+  width:180px;height:180px;
+  background:radial-gradient(circle,rgba(37,211,102,.12) 0%,transparent 70%);
+}
+.wa-card h3{font-family:var(--font-d);font-size:26px;letter-spacing:1.5px;color:var(--white);margin-bottom:8px}
+.wa-card p{font-size:13px;color:rgba(255,255,255,.45);margin-bottom:20px;line-height:1.7}
+.wa-card-btn{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  background:#25D366;color:var(--white);
+  font-size:14px;font-weight:700;
+  padding:14px;border-radius:var(--r-sm);
+  transition:background .2s,transform .2s,box-shadow .2s;
+}
+.wa-card-btn:hover{background:#1da951;transform:translateY(-2px);box-shadow:0 8px 20px rgba(37,211,102,.4)}
+
+/* MAP SECTION */
+.map-section{max-width:1340px;margin:0 auto;padding:0 32px 80px}
+.map-section-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+.map-section-hdr h2{font-family:var(--font-d);font-size:clamp(32px,4vw,52px);letter-spacing:2px;color:var(--dark)}
+.map-section-hdr a{display:inline-flex;align-items:center;gap:8px;background:var(--dark);color:var(--white);font-size:13px;font-weight:600;padding:10px 20px;border-radius:var(--r-sm);transition:background .2s}
+.map-section-hdr a:hover{background:var(--red)}
+.map-wrap{
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  border:1.5px solid var(--gray-200);
+  height:420px;
+  background:var(--gray-200);
+  position:relative;
+}
+.map-placeholder{
+  width:100%;height:100%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
+  background:var(--gray-100);
+}
+.map-placeholder svg{opacity:.3}
+.map-placeholder p{font-size:14px;color:var(--gray-400);text-align:center}
+.map-placeholder a{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:var(--white);font-size:13px;font-weight:600;padding:10px 20px;border-radius:var(--r-sm);margin-top:4px}
+.map-directions{
+  margin-top:16px;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
+}
+.dir-card{
+  background:var(--white);border:1.5px solid var(--gray-200);
+  border-radius:var(--r);padding:16px;
+  display:flex;align-items:flex-start;gap:12px;
+}
+.dir-card-icon{
+  width:36px;height:36px;border-radius:8px;
+  background:var(--red-light);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.dir-card-icon svg{color:var(--red)}
+.dir-card strong{display:block;font-size:13px;font-weight:700;margin-bottom:4px}
+.dir-card span{font-size:12px;color:var(--gray-500);line-height:1.5}
+
+/* SOCIAL STRIP */
+.social-strip{background:var(--dark-2);padding:40px 0;border-top:1px solid rgba(255,255,255,.06)}
+.social-inner{max-width:1340px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+.social-inner h3{font-family:var(--font-d);font-size:24px;letter-spacing:2px;color:var(--white)}
+.social-links{display:flex;gap:12px}
+.social-link{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 18px;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--r-sm);
+  color:rgba(255,255,255,.6);
+  font-size:13px;font-weight:600;
+  transition:all .2s;
+}
+.social-link:hover{background:var(--red);border-color:var(--red);color:var(--white)}
+.social-link svg{width:16px;height:16px}
+
+/* FOOTER */
+footer{background:var(--dark);padding:60px 0 0}
+.footer-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.07)}
+.footer-brand p{font-size:14px;color:rgba(255,255,255,.4);line-height:1.8;margin:18px 0 28px;font-weight:300;max-width:300px}
+.footer-socials{display:flex;gap:10px}
+.footer-social{width:38px;height:38px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;transition:all .25s;color:rgba(255,255,255,.5)}
+.footer-social:hover{background:var(--red);border-color:var(--red);color:var(--white);transform:translateY(-3px)}
+.footer-social svg{width:16px;height:16px}
+.footer-col h4{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.9);margin-bottom:22px}
+.footer-links{display:flex;flex-direction:column;gap:11px}
+.footer-links a{font-size:14px;color:rgba(255,255,255,.4);transition:color .2s,padding-left .2s;display:flex;align-items:center;gap:6px}
+.footer-links a::before{content:'';width:0;height:1px;background:var(--red);transition:width .2s;flex-shrink:0}
+.footer-links a:hover{color:rgba(255,255,255,.85);padding-left:4px}
+.footer-links a:hover::before{width:12px}
+.footer-contact-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,.4);margin-bottom:14px;line-height:1.5}
+.footer-contact-item svg{flex-shrink:0;margin-top:2px;color:var(--red)}
+.footer-contact-item a{color:inherit;transition:color .2s}
+.footer-contact-item a:hover{color:rgba(255,255,255,.85)}
+.footer-bottom{padding:22px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,.25)}
+.footer-bottom strong{color:rgba(255,255,255,.5)}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-left{opacity:0;transform:translateX(-24px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.reveal-left.visible{opacity:1;transform:none}
+.reveal-right{opacity:0;transform:translateX(24px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.reveal-right.visible{opacity:1;transform:none}
+
+/* ── WA FAB ── */
+.wa-fab{position:fixed;bottom:30px;right:30px;z-index:999;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.wa-fab-tooltip{background:var(--dark);color:var(--white);font-size:13px;font-weight:600;padding:9px 18px;border-radius:var(--r-sm);opacity:0;transform:translateX(10px);transition:all .25s;pointer-events:none;white-space:nowrap}
+.wa-fab:hover .wa-fab-tooltip{opacity:1;transform:translateX(0)}
+.wa-fab-btn{width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.5);transition:transform .3s var(--spring);position:relative}
+.wa-fab-btn::before{content:'';position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(37,211,102,.3);animation:waPulse 2.5s ease-out infinite}
+@keyframes waPulse{0%{transform:scale(.9);opacity:.8}100%{transform:scale(1.5);opacity:0}}
+.wa-fab-btn:hover{transform:scale(1.12)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1100px){
+  .contact-body{grid-template-columns:1fr;padding:40px 24px 60px}
+  .quick-strip-inner{grid-template-columns:1fr}
+  .qs-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.15);padding:16px 0}
+  .qs-item:last-child{border-bottom:none}
+  .map-directions{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .nav-links,.nav-btn-consult{display:none}
+  .hamburger{display:flex}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .hero-inner{padding:0 20px}
+  .map-section{padding:0 20px 60px}
+  .social-inner{flex-direction:column;align-items:flex-start}
+  .form-row{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .footer-grid{grid-template-columns:1fr}
+  .contact-body{padding:28px 16px 50px}
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div style="display:flex;align-items:center;gap:14px;animation:lPulse 1.4s ease-in-out infinite">
+    <div style="width:52px;height:52px;border:2px solid #C8102E;border-radius:50%;display:flex;align-items:center;justify-content:center">
+      <svg width="26" height="18" viewBox="0 0 40 26" fill="none"><path d="M5 18L2 12L5 4H35L38 12L35 18H5Z" stroke="white" stroke-width="2" fill="none"/><circle cx="11" cy="22" r="3.5" fill="white"/><circle cx="29" cy="22" r="3.5" fill="white"/><path d="M8 10H18M22 10H32" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+    </div>
+    <span style="font-family:'Bebas Neue',sans-serif;font-size:38px;color:white;letter-spacing:4px">JMK AUTOS</span>
+  </div>
+  <div style="width:180px;height:2px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden">
+    <div style="height:100%;background:#C8102E;border-radius:2px;animation:lFill 1.1s ease forwards"></div>
+  </div>
+</div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div style="display:flex;gap:28px;flex-wrap:wrap">
+      <a href="https://maps.google.com/?q=Ikotun+Egbe+Lagos" target="_blank" class="tb-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        Ikotun Egbe, Lagos State
+      </a>
+      <a href="tel:+2347069341321" class="tb-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        +234 706 934 1321
+      </a>
+    </div>
+    <div style="display:flex;align-items:center;gap:24px">
+      <span class="tb-item" style="font-size:12px">Mon – Sat &nbsp;|&nbsp; 8am – 7pm</span>
+      <a href="https://wa.me/2347069341321" target="_blank" class="tb-cta">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.853L.057 23.629a.5.5 0 00.614.614l5.776-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.969 0-3.809-.578-5.352-1.569l-.383-.24-3.43.877.893-3.35-.263-.404A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
+        WhatsApp Us
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">
+  <img src="./assets/images/logo.ico" alt="Logo" width="52" height="52" style="border-radius: 8px; object-fit: contain;" />
+</div>
+      <div class="nav-logo-text"><strong>JMK AUTOS</strong><span>Lagos, Nigeria</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="inventory.html">Inventory</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:10px">
+      <a href="https://wa.me/2347069341321" target="_blank" class="nav-btn-consult">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.853L.057 23.629a.5.5 0 00.614.614l5.776-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.969 0-3.809-.578-5.352-1.569l-.383-.24-3.43.877.893-3.35-.263-.404A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
+        Enquire Now
+      </a>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" id="mobileClose">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <a href="index.html">Home</a>
+  <a href="inventory.html">Inventory</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About Us</a>
+  <a href="contact.html">Contact</a>
+  <a href="https://wa.me/2347069341321" target="_blank" class="mobile-nav-wa">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.853L.057 23.629a.5.5 0 00.614.614l5.776-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.969 0-3.809-.578-5.352-1.569l-.383-.24-3.43.877.893-3.35-.263-.404A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
+    Chat on WhatsApp
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="contact-hero">
+  <div class="hero-inner">
+    <div class="hero-tag"><span></span>We're here to help</div>
+    <h1>GET IN<br><span>TOUCH</span></h1>
+    <p>Have questions about a vehicle or want to book a viewing? Reach us on WhatsApp, give us a call, or fill out the form — we respond within minutes.</p>
+  </div>
+</section>
+
+<!-- QUICK CONTACT STRIP -->
+<div class="quick-strip">
+  <div class="quick-strip-inner">
+    <a href="https://wa.me/2347069341321" target="_blank" class="qs-item">
+      <div class="qs-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.853L.057 23.629a.5.5 0 00.614.614l5.776-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.969 0-3.809-.578-5.352-1.569l-.383-.24-3.43.877.893-3.35-.263-.404A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
+      </div>
+      <div class="qs-text">
+        <strong>WhatsApp</strong>
+        <span>+234 706 934 1321</span>
+      </div>
+    </a>
+    <a href="tel:+2347069341321" class="qs-item">
+      <div class="qs-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      </div>
+      <div class="qs-text">
+        <strong>Call Us Direct</strong>
+        <span>+234 706 934 1321</span>
+      </div>
+    </a>
+    <a href="https://maps.google.com/?q=Ikotun+Egbe+Lagos" target="_blank" class="qs-item">
+      <div class="qs-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      </div>
+      <div class="qs-text">
+        <strong>Visit Us</strong>
+        <span>Ikotun Egbe, Lagos</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- MAIN BODY -->
+<div class="contact-body">
+
+  <!-- FORM -->
+  <div class="form-card reveal">
+    <div class="form-card-hdr">
+      <h2>Send Us a Message</h2>
+      <p>Fill out the form and we'll send your message directly to our WhatsApp</p>
+    </div>
+    <div class="form-card-body">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">First Name <span>*</span></label>
+          <input type="text" class="form-input" id="firstName" placeholder="e.g. Adebayo">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last Name</label>
+          <input type="text" class="form-input" id="lastName" placeholder="e.g. Oluwafemi">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Phone Number <span>*</span></label>
+          <input type="tel" class="form-input" id="phone" placeholder="+234 800 000 0000">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" id="email" placeholder="you@example.com">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">I'm Interested In</label>
+        <select class="form-input" id="interest">
+          <option value="">Select an option</option>
+          <option value="Buying a car">Buying a car</option>
+          <option value="Selling my car">Selling my car</option>
+          <option value="Car swap">Car swap / trade-in</option>
+          <option value="Installment payment">Installment payment plan</option>
+          <option value="Vehicle inspection">Vehicle inspection</option>
+          <option value="General enquiry">General enquiry</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Your Message <span>*</span></label>
+        <textarea class="form-input" id="message" placeholder="Tell us more about what you're looking for — budget, preferred brand, body type, etc."></textarea>
+      </div>
+      <button class="submit-btn" onclick="sendContactForm()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.853L.057 23.629a.5.5 0 00.614.614l5.776-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.969 0-3.809-.578-5.352-1.569l-.383-.24-3.43.877.893-3.35-.263-.404A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
+        Send via WhatsApp
+      </button>
+      <p class="form-note">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+        This opens WhatsApp with your message pre-filled
+      </p>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="contact-sidebar">
+
+    <!-- CONTACT INFO -->
+    <div class="info-card reveal">
+      <div class="info-card-hdr">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.06 9.77a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .9h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16l-.08.92z"/></svg>
+        <h3>Contact Details</h3>
+      </div>
+      <div class="info-card-body">
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.06 9.77a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .9h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16l-.08.92z"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <strong>Phone / WhatsApp</strong>
+            <a href="tel:+2347069341321">+234 706 934 1321</a>
+            <small>Tap to call or message on WhatsApp</small>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <strong>Email</strong>
+            <a href="mailto:info@jmkautos.com">info@jmkautos.com</a>
+            <small>We reply within a few hours</small>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <strong>Our Location</strong>
+            <span>Ikotun Egbe, Lagos State</span>
+            <small>Nigeria</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOURS -->
+    <div class="hours-card reveal">
+      <div class="hours-hdr">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+        <h3>Business Hours</h3>
+      </div>
+      <div class="hours-body">
+        <div class="hours-row"><span class="hours-day">Monday</span><span class="hours-time open">8:00 AM – 7:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Tuesday</span><span class="hours-time open">8:00 AM – 7:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Wednesday</span><span class="hours-time open">8:00 AM – 7:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Thursday</span><span class="hours-time open">8:00 AM – 7:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Friday</span><span class="hours-time open">8:00 AM – 7:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time open">8:00 AM – 6:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time closed">Closed</span></div>
+        <div class="hours-badge">
+          <span></span>
+          Currently open Mon – Sat
+        </div>
+      </div>
+    </div>
+
+    <!-- WHATSAPP CTA -->
+    <div class="wa-card reveal">
+      <h3>Fastest Response on WhatsApp</h3>
+      <p>Send us a message right now and get a reply within minutes. Ask about any car in our inventory, negotiate a price or book a viewing.</p>
+      <a href="https://wa.me/2347069341321?text=Hello%20JMK%20Autos!%20I%20would%20like%20to%20make%20an%20enquiry." target="_blank" class="wa-card-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.853L.057 23.629a.5.5 0 00.614.614l5.776-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.969 0-3.809-.578-5.352-1.569l-.383-.24-3.43.877.893-3.35-.263-.404A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
+        Chat on WhatsApp Now
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- MAP SECTION -->
+<section class="map-section">
+  <div class="map-section-hdr reveal">
+    <h2>Find Us in Lagos</h2>
+    <a href="https://maps.google.com/?q=Ikotun+Egbe+Lagos" target="_blank">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      Open in Google Maps
+    </a>
+  </div>
+
+  <div class="map-wrap reveal">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.9!2d3.2850!3d6.5244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280a1%3A0xdc9e87a367c3d9cb!2sIkotun%20Egbe%2C%20Lagos!5e0!3m2!1sen!2sng!4v1"
+      width="100%" height="100%" style="border:0;display:block" allowfullscreen loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+
+  <div class="map-directions reveal">
+    <div class="dir-card">
+      <div class="dir-card-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div>
+        <strong>Address</strong>
+        <span>Ikotun Egbe, Lagos State, Nigeria</span>
+      </div>
+    </div>
+    <div class="dir-card">
+      <div class="dir-card-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+      </div>
+      <div>
+        <strong>Nearest Landmark</strong>
+        <span>Ikotun Egbe Bus Stop, Lagos</span>
+      </div>
+    </div>
+    <div class="dir-card">
+      <div class="dir-card-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+      </div>
+      <div>
+        <strong>Parking</strong>
+        <span>Free parking available on site</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL STRIP -->
+<div class="social-strip">
+  <div class="social-inner">
+    <h3>FOLLOW US</h3>
+    <div class="social-links">
+      <a href="#" class="social-link">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        Facebook
+      </a>
+      <a href="#" class="social-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        Instagram
+      </a>
+      <a href="https://wa.me/2347069341321" target="_blank" class="social-link">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.853L.057 23.629a.5.5 0 00.614.614l5.776-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.969 0-3.809-.578-5.352-1.569l-.383-.24-3.43.877.893-3.35-.263-.404A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div style="max-width:1340px;margin:0 auto;padding:0 32px">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+         <div class="nav-logo-mark">
+  <img src="./assets/images/logo.ico" alt="Logo" width="52" height="52" style="border-radius: 8px; object-fit: contain;" />
+</div>
+          <div class="nav-logo-text"><strong>JMK AUTOS</strong><span>Lagos, Nigeria</span></div>
+        </a>
+        <p>Your trusted partner for quality cars in Lagos. We sell, buy and swap vehicles with full transparency.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="#" class="footer-social"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="https://wa.me/2347069341321" target="_blank" class="footer-social"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.853L.057 23.629a.5.5 0 00.614.614l5.776-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.969 0-3.809-.578-5.352-1.569l-.383-.24-3.43.877.893-3.35-.263-.404A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Navigation</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="inventory.html">Inventory</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a href="inventory.html">Buy a Car</a></li><li><a href="services.html">Sell Your Car</a></li><li><a href="services.html">Car Swap</a></li><li><a href="services.html">Installment Plans</a></li><li><a href="services.html">Vehicle Inspection</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4>
+        <div class="footer-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>Ikotun Egbe, Lagos State</div>
+        <div class="footer-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><a href="tel:+2347069341321">+234 706 934 1321</a></div>
+        <div class="footer-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg><a href="mailto:info@jmkautos.com">info@jmkautos.com</a></div>
+        <div class="footer-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>Mon – Sat: 8:00am – 7:00pm</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2025 <strong>JMK Autos</strong>. All rights reserved.</span>
+      <span>Quality Cars &nbsp;·&nbsp; Trusted Deals &nbsp;·&nbsp; Smooth Delivery</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WA FAB -->
+<div class="wa-fab">
+  <div class="wa-fab-tooltip">Chat with us on WhatsApp</div>
+  <a href="https://wa.me/2347069341321?text=Hello%20JMK%20Autos!%20I%20would%20like%20to%20make%20an%20enquiry." target="_blank" class="wa-fab-btn">
+    <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.853L.057 23.629a.5.5 0 00.614.614l5.776-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.969 0-3.809-.578-5.352-1.569l-.383-.24-3.43.877.893-3.35-.263-.404A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
+  </a>
+</div>
+
+<script>
+function sendContactForm() {
+  const first    = document.getElementById('firstName').value.trim();
+  const last     = document.getElementById('lastName').value.trim();
+  const phone    = document.getElementById('phone').value.trim();
+  const email    = document.getElementById('email').value.trim();
+  const interest = document.getElementById('interest').value;
+  const message  = document.getElementById('message').value.trim();
+
+  if (!first) { document.getElementById('firstName').focus(); document.getElementById('firstName').style.borderColor='#C8102E'; return; }
+  if (!phone) { document.getElementById('phone').focus(); document.getElementById('phone').style.borderColor='#C8102E'; return; }
+  if (!message) { document.getElementById('message').focus(); document.getElementById('message').style.borderColor='#C8102E'; return; }
+
+  const lines = [
+    'Hello JMK Autos! 👋',
+    '',
+    `Name: ${first} ${last}`.trim(),
+    phone   ? `Phone: ${phone}` : '',
+    email   ? `Email: ${email}` : '',
+    interest ? `Interest: ${interest}` : '',
+    '',
+    `Message: ${message}`,
+  ].filter(l => l !== null);
+
+  window.open(`https://wa.me/2347069341321?text=${encodeURIComponent(lines.join('\n'))}`, '_blank');
+}
+
+// Remove red border on input focus
+document.querySelectorAll('.form-input').forEach(el => {
+  el.addEventListener('focus', () => el.style.borderColor = '');
+});
+
+// Scroll reveal
+function initReveal() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => {
+    if (!el.classList.contains('visible')) obs.observe(el);
+  });
+}
+
+window.addEventListener('load', () => {
+  setTimeout(() => document.getElementById('loader').classList.add('gone'), 1000);
+  initReveal();
+});
+
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+}, { passive: true });
+
+const hamburger  = document.getElementById('hamburger');
+const mobileNav  = document.getElementById('mobileNav');
+const mobileClose = document.getElementById('mobileClose');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileNav.classList.toggle('open');
+  document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+});
+mobileClose.addEventListener('click', () => {
+  hamburger.classList.remove('open');
+  mobileNav.classList.remove('open');
+  document.body.style.overflow = '';
+});
+mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  hamburger.classList.remove('open');
+  mobileNav.classList.remove('open');
+  document.body.style.overflow = '';
+}));
+</script>
+</body>
+</html>
