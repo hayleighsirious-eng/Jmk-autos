@@ -7,6 +7,7 @@
 <meta name="description" content="JMK Autos offers premium car sales, vehicle sourcing, pre-purchase inspection, documentation assistance, trade-in, and after-sales support in Lagos, Nigeria.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="./assets/images/favicon-32x32.png">
 
 <style>
 /* ─── GLOBAL RESET & OVERFLOW FIX ─── */
@@ -56,12 +57,12 @@ ul{list-style:none}
 @keyframes lFill{from{width:0}to{width:100%}}
 @keyframes lPulse{0%,100%{opacity:1}50%{opacity:.6}}
 
-/* ─── TOPBAR ─── */
+/* ─── TOPBAR (FIXED) ─── */
 .topbar{
+  position:fixed;top:0;left:0;right:0;width:100%;z-index:1001;
   background:var(--dark-2);
   padding:10px 0;
   border-bottom:1px solid rgba(255,255,255,.06);
-  width:100%;
   overflow:hidden;
 }
 .topbar-inner{
@@ -86,14 +87,13 @@ ul{list-style:none}
 }
 .tb-cta:hover{background:var(--red-dark);transform:translateY(-1px)}
 
-/* ─── NAVBAR (STICKY) ─── */
+/* ─── NAVBAR (FIXED, below topbar) ─── */
 .navbar{
-  position:sticky;top:0;z-index:1000;
+  position:fixed;top:41px;left:0;right:0;width:100%;z-index:1000;
   background:rgba(255,255,255,.97);
   backdrop-filter:blur(16px);
   border-bottom:1px solid rgba(0,0,0,.07);
   transition:box-shadow .3s;
-  width:100%;
   overflow:hidden;
 }
 .navbar.scrolled{box-shadow:0 4px 30px rgba(0,0,0,.1)}
@@ -180,7 +180,8 @@ ul{list-style:none}
 }
 
 /* ─── BREADCRUMB ─── */
-.breadcrumb-bar{background:#fff;border-bottom:1px solid var(--gray-200);padding:12px 0;width:100%;overflow:hidden}
+/* margin-top: topbar(41px) + navbar(64px) = 105px */
+.breadcrumb-bar{background:#fff;border-bottom:1px solid var(--gray-200);padding:12px 0;width:100%;overflow:hidden;margin-top:105px}
 .breadcrumb-inner{
   max-width:1340px;margin:0 auto;padding:0 16px;
   display:flex;align-items:center;gap:8px;
@@ -565,6 +566,8 @@ footer{background:var(--dark);padding:50px 0 0;width:100%;overflow:hidden}
 /* Mobile large */
 @media(max-width:768px){
   .topbar{display:none}
+  .navbar{top:0}
+  .breadcrumb-bar{margin-top:64px}
   .services-grid{grid-template-columns:1fr}
   .cta-band-inner{flex-direction:column;text-align:center}
   .cta-band-btns{justify-content:center;width:100%}
@@ -642,7 +645,7 @@ footer{background:var(--dark);padding:50px 0 0;width:100%;overflow:hidden}
   </div>
 </div>
 
-<!-- NAVBAR (STICKY) -->
+<!-- NAVBAR (FIXED) -->
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
