@@ -202,11 +202,37 @@ ul{list-style:none}
 
 /* ── TEAM ── */
 .team-section{background:var(--gray-100);padding:80px 0}
-.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
+/* ── TEAM ── */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 52px;
+}
+
+/* When only one card exists, center it and limit its width */
+.team-grid:has(.team-card:only-child) {
+  grid-template-columns: 340px;
+  justify-content: center;
+}
 .team-card{background:var(--white);border-radius:var(--r-lg);border:1.5px solid var(--gray-200);overflow:hidden;transition:border-color .3s,transform .3s,box-shadow .3s;text-align:center}
 .team-card:hover{border-color:rgba(200,16,46,.25);transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.1)}
-.team-card-photo{height:240px;overflow:hidden;background:var(--dark-3);position:relative;display:flex;align-items:center;justify-content:center}
-.team-card-photo img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .5s}
+.team-card-photo {
+  height: 300px; /* was 240px */
+  overflow: hidden;
+  background: var(--dark-3);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.team-card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%; /* ← adjust % to taste; 20% pulls face into view */
+  transition: transform .5s;
+}
 .team-card:hover .team-card-photo img{transform:scale(1.05)}
 .team-avatar-placeholder{width:96px;height:96px;border-radius:50%;background:rgba(200,16,46,.2);display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-size:38px;letter-spacing:2px;color:var(--red)}
 .team-card-body{padding:24px 20px 28px}
@@ -215,6 +241,7 @@ ul{list-style:none}
 .team-card-bio{font-size:13px;color:var(--gray-500);line-height:1.7;font-weight:300}
 .team-card-wa{display:inline-flex;align-items:center;gap:6px;margin-top:16px;padding:9px 18px;background:var(--dark);color:var(--white);font-size:12px;font-weight:600;border-radius:var(--r-sm);transition:background .2s,transform .2s}
 .team-card-wa:hover{background:var(--red);transform:translateY(-1px)}
+
 
 /* ── GALLERY STRIP ── */
 .gallery-strip-section{padding:0;overflow:hidden;background:var(--dark)}
@@ -381,6 +408,8 @@ footer{background:var(--dark);padding:60px 0 0}
       <li><a href="services.html">Services</a></li>
       <li><a href="about.html" class="active">About Us</a></li>
       <li><a href="contact.html">Contact</a></li>
+      <li><a href="preorder.html">Preorder</a></li>
+      <li><a href="swap.html">Swap</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:10px">
       <a href="https://wa.me/2347069341321" target="_blank" class="nav-btn-consult">
@@ -402,6 +431,8 @@ footer{background:var(--dark);padding:60px 0 0}
   <a href="services.html">Services</a>
   <a href="about.html">About Us</a>
   <a href="contact.html">Contact</a>
+  <a href="preorder.html">Preorder</a>
+  <a href="swap.html">Swap</a>
   <a href="https://wa.me/2347069341321" target="_blank" class="mobile-nav-wa">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.853L.057 23.629a.5.5 0 00.614.614l5.776-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.969 0-3.809-.578-5.352-1.569l-.383-.24-3.43.877.893-3.35-.263-.404A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
     Chat on WhatsApp
@@ -422,7 +453,7 @@ footer{background:var(--dark);padding:60px 0 0}
   <div class="about-hero-left">
     <div class="hero-eyebrow">Our Story</div>
     <h1 class="about-hero-title">BUILT ON<br><span>TRUST.</span><br>DRIVEN BY<br>PASSION.</h1>
-    <p class="about-hero-desc">Since 2017, JMK Autos has been Lagos' go-to destination for quality vehicles and honest deals. We don't just sell cars — we build lasting relationships.</p>
+    <p class="about-hero-desc">Since 2015, JMK Autos has been Lagos' go-to destination for quality vehicles and honest deals. We don't just sell cars  we build lasting relationships.</p>
     <a href="#our-story" class="hero-btn">
       Read Our Story
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -463,15 +494,15 @@ footer{background:var(--dark);padding:60px 0 0}
           <img src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=400&q=80&auto=format&fit=crop" alt="Our team" loading="lazy">
         </div>
         <div class="story-years-badge">
-          <div class="story-years-num">2017</div>
+          <div class="story-years-num">2015</div>
           <div class="story-years-label">Founded</div>
         </div>
       </div>
       <div class="story-text reveal-right">
         <div class="section-label"><span>Who We Are</span></div>
         <h2 class="section-title">OUR<br>STORY</h2>
-        <p class="story-body">JMK Autos was founded in <strong>2017 in Ikotun Egbe, Lagos</strong>, with one clear conviction: that buying a car in Nigeria should not be a gamble. Too many people were being sold problem vehicles, handed dubious paperwork, and left on their own the moment money exchanged hands.</p>
-        <p class="story-body">We started small — a handful of carefully selected cars, a small yard, and a big commitment to honesty. Word spread quickly. Customers who came expecting the usual dealer runaround left surprised — cars that matched their descriptions, fair prices, and zero document drama.</p>
+        <p class="story-body">JMK Autos was founded in <strong>2015 in Ikotun Egbe, Lagos</strong>, with one clear conviction: that buying a car in Nigeria should not be a gamble. Too many people were being sold problem vehicles, handed dubious paperwork, and left on their own the moment money exchanged hands.</p>
+        <p class="story-body">We started small  a handful of carefully selected cars, a small yard, and a big commitment to honesty. Word spread quickly. Customers who came expecting the usual dealer runaround left surprised  cars that matched their descriptions, fair prices, and zero document drama.</p>
         <div class="story-quote">
           <p>"We built JMK Autos on one principle: treat every customer the way you'd want your own family treated when buying a car."</p>
           <cite>JMK Autos Founder</cite>
@@ -498,7 +529,7 @@ footer{background:var(--dark);padding:60px 0 0}
       <div class="mvv-card reveal" style="transition-delay:.1s">
         <div class="mvv-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
         <div class="mvv-card-title">OUR VISION</div>
-        <div class="mvv-card-body">To become the most trusted automotive dealership in West Africa — known not just for the quality of our cars, but for the integrity of every single transaction we make.</div>
+        <div class="mvv-card-body">To become the most trusted automotive dealership in West Africa  known not just for the quality of our cars, but for the integrity of every single transaction we make.</div>
       </div>
       <div class="mvv-card reveal" style="transition-delay:.2s">
         <div class="mvv-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
@@ -519,24 +550,24 @@ footer{background:var(--dark);padding:60px 0 0}
     </div>
     <div class="timeline">
       <div class="tl-item">
-        <div class="tl-content reveal-left"><div class="tl-tag">Foundation</div><div class="tl-title">JMK Autos Opens Its Doors</div><div class="tl-body">We started with just six vehicles and one mission — to sell cars honestly. Our first customers in Ikotun Egbe quickly became our loudest ambassadors.</div></div>
-        <div class="tl-center"><div class="tl-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/></svg></div><div class="tl-year">2017</div></div>
+        <div class="tl-content reveal-left"><div class="tl-tag">Foundation</div><div class="tl-title">JMK Autos Opens Its Doors</div><div class="tl-body">We started with just six vehicles and one mission  to sell cars honestly. Our first customers in Ikotun Egbe quickly became our loudest ambassadors.</div></div>
+        <div class="tl-center"><div class="tl-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/></svg></div><div class="tl-year">2015</div></div>
         <div class="tl-empty"></div>
       </div>
       <div class="tl-item">
         <div class="tl-empty"></div>
         <div class="tl-center"><div class="tl-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/></svg></div><div class="tl-year">2018</div></div>
-        <div class="tl-content reveal-right"><div class="tl-tag">Growth</div><div class="tl-title">First 100 Cars Sold</div><div class="tl-body">Within 18 months, we crossed 100 sold vehicles — entirely through referrals and repeat customers. No advertising, just trust and results.</div></div>
+        <div class="tl-content reveal-right"><div class="tl-tag">Growth</div><div class="tl-title">First 200 Cars Sold</div><div class="tl-body">Within 3 months, we crossed 200 sold vehicles  entirely through referrals and repeat customers. No advertising, just trust and results.</div></div>
       </div>
       <div class="tl-item">
-        <div class="tl-content reveal-left"><div class="tl-tag">Expansion</div><div class="tl-title">Vehicle Sourcing Service Launched</div><div class="tl-body">Customers kept asking us to find specific cars. So we formalised our sourcing arm — connecting buyers to exactly the vehicle they wanted, wherever it was.</div></div>
+        <div class="tl-content reveal-left"><div class="tl-tag">Expansion</div><div class="tl-title">Vehicle Sourcing Service Launched</div><div class="tl-body">Customers kept asking us to find specific cars. So we formalised our sourcing arm  connecting buyers to exactly the vehicle they wanted, wherever it was.</div></div>
         <div class="tl-center"><div class="tl-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/></svg></div><div class="tl-year">2020</div></div>
         <div class="tl-empty"></div>
       </div>
       <div class="tl-item">
         <div class="tl-empty"></div>
         <div class="tl-center"><div class="tl-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/></svg></div><div class="tl-year">2022</div></div>
-        <div class="tl-content reveal-right"><div class="tl-tag">Digital</div><div class="tl-title">Online Inventory Goes Live</div><div class="tl-body">We launched our digital presence, letting customers browse and enquire from anywhere in Nigeria — bringing JMK Autos to screens across the country.</div></div>
+        <div class="tl-content reveal-right"><div class="tl-tag">Digital</div><div class="tl-title">Online Inventory Goes Live</div><div class="tl-body">We launched our digital presence, letting customers browse and enquire from anywhere in Nigeria  bringing JMK Autos to screens across the country.</div></div>
       </div>
       <div class="tl-item">
         <div class="tl-content reveal-left"><div class="tl-tag">Today</div><div class="tl-title">500+ Customers & Growing</div><div class="tl-body">With a full-service offering spanning sales, sourcing, inspection, documentation and trade-ins, JMK Autos is now one of Lagos' most respected dealerships.</div></div>
@@ -551,13 +582,15 @@ footer{background:var(--dark);padding:60px 0 0}
 <section class="team-section">
   <div class="container">
     <div class="reveal" style="text-align:center;max-width:560px;margin:0 auto">
-      <div class="section-label" style="justify-content:center"><span>The People Behind JMK</span></div>
-      <h2 class="section-title">MEET<br>THE TEAM</h2>
-      <p class="section-sub" style="margin:0 auto">Every person on our team shares one thing — a genuine passion for cars and an uncompromising commitment to your satisfaction.</p>
+      <div class="section-label" style="justify-content:center"><span>The Man Behind JMK</span></div>
+      <h2 class="section-title">MEET<br>THE CEO</h2>
+      <p class="section-sub" style="margin:0 auto">At the heart of our company is our CEO, whose genuine passion for cars and unwavering commitment to your satisfaction set the standard for everything we do.</p>
     </div>
     <div class="team-grid">
       <div class="team-card reveal">
-        <div class="team-card-photo"><div class="team-avatar-placeholder">JK</div></div>
+        <div class="team-card-photo">
+          <img src="./assets/images/ceo.jpg">
+          </div>
         <div class="team-card-body">
           <div class="team-card-name">Mr. J. Kamoru</div>
           <div class="team-card-role">Founder & CEO</div>
@@ -568,31 +601,6 @@ footer{background:var(--dark);padding:60px 0 0}
           </a>
         </div>
       </div>
-      <div class="team-card reveal" style="transition-delay:.1s">
-        <div class="team-card-photo"><div class="team-avatar-placeholder">SA</div></div>
-        <div class="team-card-body">
-          <div class="team-card-name">Mrs. S. Adeyemi</div>
-          <div class="team-card-role">Head of Sales & Customer Relations</div>
-          <div class="team-card-bio">The first voice you're likely to hear at JMK. Seun has helped hundreds of customers find their perfect car with patience, expertise and a warm smile that puts everyone at ease.</div>
-          <a href="https://wa.me/2347069341321?text=Hello!%20I%27d%20like%20to%20speak%20with%20the%20sales%20team%20at%20JMK%20Autos." target="_blank" class="team-card-wa">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.853L.057 23.629a.5.5 0 00.614.614l5.776-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.969 0-3.809-.578-5.352-1.569l-.383-.24-3.43.877.893-3.35-.263-.404A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
-            Message on WhatsApp
-          </a>
-        </div>
-      </div>
-      <div class="team-card reveal" style="transition-delay:.2s">
-        <div class="team-card-photo"><div class="team-avatar-placeholder">TO</div></div>
-        <div class="team-card-body">
-          <div class="team-card-name">Mr. T. Okonkwo</div>
-          <div class="team-card-role">Lead Mechanic & Inspection Officer</div>
-          <div class="team-card-bio">With 12 years of hands-on automotive experience, Tunde is the quality gatekeeper at JMK. If a car doesn't meet his standard, it doesn't make it to our lot — simple as that.</div>
-          <a href="https://wa.me/2347069341321?text=Hello!%20I%27d%20like%20to%20book%20a%20vehicle%20inspection%20with%20JMK%20Autos." target="_blank" class="team-card-wa">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.853L.057 23.629a.5.5 0 00.614.614l5.776-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.969 0-3.809-.578-5.352-1.569l-.383-.24-3.43.877.893-3.35-.263-.404A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
-            Message on WhatsApp
-          </a>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -646,12 +654,12 @@ footer{background:var(--dark);padding:60px 0 0}
         </div>
         <p>Quality Cars. Trusted Deals. Smooth Delivery. Your number one destination for foreign used and Nigerian used vehicles in Lagos.</p>
         <div class="footer-socials">
-          <a href="#" class="footer-social" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-          <a href="#" class="footer-social" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="https://www.facebook.com/share/18ZRnTTtDp/?mibextid=wwXIfr" class="footer-social" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          <a href="https://www.instagram.com/jmkautos1?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="footer-social" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
           <a href="https://wa.me/2347069341321" target="_blank" class="footer-social" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.853L.057 23.629a.5.5 0 00.614.614l5.776-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.969 0-3.809-.578-5.352-1.569l-.383-.24-3.43.877.893-3.35-.263-.404A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg></a>
         </div>
       </div>
-      <div class="footer-col"><h4>Quick Links</h4><div class="footer-links"><a href="index.html">Home</a><a href="inventory.html">Inventory</a><a href="services.html">Services</a><a href="about.html">About Us</a><a href="contact.html">Contact</a></div></div>
+      <div class="footer-col"><h4>Quick Links</h4><div class="footer-links"><a href="index.html">Home</a><a href="inventory.html">Inventory</a><a href="services.html">Services</a><a href="about.html">About Us</a><a href="contact.html">Contact</a><a href="preorder.html">Preorder</a><a href="swap.html">Swap</a></div></div>
       <div class="footer-col"><h4>Services</h4><div class="footer-links"><a href="services.html">Car Sales</a><a href="services.html">Vehicle Sourcing</a><a href="services.html">Pre-Purchase Inspection</a><a href="services.html">Documentation</a><a href="services.html">Trade-In & Swap</a></div></div>
       <div class="footer-col"><h4>Contact</h4>
         <div class="footer-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>Ikotun Egbe, Lagos State</div>
