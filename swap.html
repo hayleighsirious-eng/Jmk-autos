@@ -299,6 +299,37 @@ footer{background:var(--dark);padding:52px 0 0}
   .success-actions{flex-direction:column;align-items:center}
   .photo-previews{grid-template-columns:repeat(2,1fr)}
 }
+.swap-policy-cars{
+  display:grid;
+  grid-template-columns:1fr 64px 1fr;
+  gap:16px;
+  align-items:center;
+  margin-bottom:0;
+}
+.swap-policy-steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  margin-bottom:32px;
+}
+.swap-policy-step{
+  background:rgba(255,255,255,.04);
+  border:1.5px solid rgba(255,255,255,.07);
+  border-radius:14px;
+  padding:22px;
+  transition:border-color .25s;
+}
+.swap-policy-step:hover{
+  border-color:rgba(200,16,46,.4);
+}
+@media(max-width:900px){
+  .swap-policy-steps{grid-template-columns:1fr 1fr}
+  .swap-policy-cars{gap:12px}
+}
+@media(max-width:600px){
+  .swap-policy-cars{grid-template-columns:1fr}
+  .swap-policy-steps{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -311,14 +342,14 @@ footer{background:var(--dark);padding:52px 0 0}
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
         Ikotun Egbe, Lagos State
       </a>
-      <a href="tel:+2347069341321" class="tb-item">
+      <a href="tel:+2348130726265" class="tb-item">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-        +234 706 934 1321
+        +234 813 072 6265
       </a>
     </div>
     <div class="tb-right">
       <span class="tb-item" style="font-size:12px">Mon–Sat &nbsp;|&nbsp; 9am–6pm</span>
-      <a href="https://wa.me/2347069341321?text=Hello%20JMK%20Autos!" target="_blank" class="tb-cta">
+      <a href="https://wa.me/2348130726265?text=Hello%20JMK%20Autos!" target="_blank" class="tb-cta">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.853L.057 23.629a.5.5 0 00.614.614l5.776-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.969 0-3.809-.578-5.352-1.569l-.383-.24-3.43.877.893-3.35-.263-.404A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
         WhatsApp Us
       </a>
@@ -345,7 +376,7 @@ footer{background:var(--dark);padding:52px 0 0}
       <li><a href="swap.html" class="active">Swap</a></li>
     </ul>
     <div class="nav-actions">
-      <a href="https://wa.me/2347069341321?text=Hello%20JMK%20Autos!" target="_blank" class="nav-btn-consult">
+      <a href="https://wa.me/2348130726265?text=Hello%20JMK%20Autos!" target="_blank" class="nav-btn-consult">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.853L.057 23.629a.5.5 0 00.614.614l5.776-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.969 0-3.809-.578-5.352-1.569l-.383-.24-3.43.877.893-3.35-.263-.404A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
         Enquire Now
       </a>
@@ -366,7 +397,7 @@ footer{background:var(--dark);padding:52px 0 0}
   <a href="contact.html">Contact</a>
   <a href="preorder.html">Preorder</a>
   <a href="swap.html">Swap</a>
-  <a href="https://wa.me/2347069341321" target="_blank" class="mobile-nav-wa">
+  <a href="https://wa.me/2348130726265" target="_blank" class="mobile-nav-wa">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.853L.057 23.629a.5.5 0 00.614.614l5.776-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.969 0-3.809-.578-5.352-1.569l-.383-.24-3.43.877.893-3.35-.263-.404A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
     Chat on WhatsApp
   </a>
@@ -380,7 +411,7 @@ footer{background:var(--dark);padding:52px 0 0}
       <a href="index.html">Home</a><span>›</span><a href="services.html">Services</a><span>›</span><span>Car Swap</span>
     </div>
     <h1 class="page-hero-title">Swap Your Car<br><span>Upgrade Today</span></h1>
-    <p class="page-hero-sub">Have a car you want to exchange for a different one? Tell us about your current car and the one you want — we'll handle the rest.</p>
+    <p class="page-hero-sub">Have a car you want to exchange for a different one? Tell us about your current car and the one you want  we'll handle the rest.</p>
   </div>
 </div>
 
@@ -426,12 +457,104 @@ footer{background:var(--dark);padding:52px 0 0}
       <div class="step-item reveal" style="transition-delay:.3s">
         <div class="step-num">04</div>
         <div class="step-title">Drive Away</div>
-        <div class="step-desc">Hand over your car, collect your new one — fully registered and verified.</div>
+        <div class="step-desc">Hand over your car, collect your new one  fully registered and verified.</div>
       </div>
     </div>
   </div>
 </div>
 
+
+
+
+ 
+<div style="width:100%;background:var(--dark);padding:56px 0 52px">
+  <div style="max-width:1340px;margin:0 auto;padding:0 40px">
+ 
+    <!-- LABEL -->
+    <div style="display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);background:rgba(200,16,46,.12);border:1.5px solid rgba(200,16,46,.25);border-radius:100px;padding:5px 16px;margin-bottom:16px">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l2 2"/></svg>
+      How Swap Pricing Works
+    </div>
+ 
+    <!-- HEADING -->
+    <div style="font-family:var(--font-d);font-size:clamp(32px,4vw,54px);letter-spacing:2.5px;color:var(--white);line-height:1;margin-bottom:12px">
+      We Value Your Car  <span style="color:var(--red)">You Pay the Difference</span>
+    </div>
+    <p style="font-size:14px;color:rgba(255,255,255,.45);font-weight:300;line-height:1.8;max-width:580px;margin-bottom:48px">
+      No asking prices, no guessing. Bring your car  our team places a fair market value on it. If the car you want costs more, you simply top up the difference. That is it.
+    </p>
+ 
+    <!-- LIVE EXAMPLE BOX -->
+    <div style="background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.08);border-radius:20px;padding:32px;margin-bottom:48px">
+      <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:24px">Live Example</div>
+ 
+      <div class="swap-policy-cars">
+        <div style="background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.1);border-radius:14px;padding:20px 22px">
+          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#F59E0B;margin-bottom:8px">Your Car &mdash; Giving Up</div>
+          <div style="font-size:14px;font-weight:600;color:rgba(255,255,255,.8);margin-bottom:10px">Toyota Camry 2018</div>
+          <div style="font-family:var(--font-d);font-size:clamp(24px,3vw,34px);letter-spacing:1px;color:#F59E0B">&#8358;5,000,000</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center">
+          <div style="width:48px;height:48px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.1);border-radius:14px;padding:20px 22px">
+          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#34D399;margin-bottom:8px">Car You Want</div>
+          <div style="font-size:14px;font-weight:600;color:rgba(255,255,255,.8);margin-bottom:10px">Lexus RX 350 2020</div>
+          <div style="font-family:var(--font-d);font-size:clamp(24px,3vw,34px);letter-spacing:1px;color:#34D399">&#8358;10,000,000</div>
+        </div>
+      </div>
+ 
+      <div style="border-top:1.5px solid rgba(255,255,255,.07);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:24px">
+        <div>
+          <div style="font-size:14px;font-weight:700;color:rgba(255,255,255,.85);margin-bottom:4px">Your Top-Up Payment</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.35);font-weight:300">&#8358;10M (car you want) &minus; &#8358;5M (your car value) = balance due</div>
+        </div>
+        <div style="background:var(--red);border-radius:12px;padding:14px 28px;text-align:center;flex-shrink:0">
+          <div style="font-family:var(--font-d);font-size:28px;letter-spacing:1.5px;color:var(--white)">&#8358;5,000,000</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:2px">Top-Up Required</div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- 4 STEPS -->
+    <div class="swap-policy-steps">
+      <div class="swap-policy-step">
+        <div style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.12);color:var(--white);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:14px">1</div>
+        <div style="font-size:14px;font-weight:700;color:rgba(255,255,255,.85);margin-bottom:6px">Submit This Form</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.35);line-height:1.7;font-weight:300">Describe your car honestly &mdash; condition, mileage, faults. No asking price needed from you.</div>
+      </div>
+      <div class="swap-policy-step">
+        <div style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.12);color:var(--white);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:14px">2</div>
+        <div style="font-size:14px;font-weight:700;color:rgba(255,255,255,.85);margin-bottom:6px">We Value Your Car</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.35);line-height:1.7;font-weight:300">Our team places a fair market value on your car within 24 hours and contacts you directly.</div>
+      </div>
+      <div class="swap-policy-step">
+        <div style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.12);color:var(--white);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:14px">3</div>
+        <div style="font-size:14px;font-weight:700;color:rgba(255,255,255,.85);margin-bottom:6px">We Agree the Balance</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.35);line-height:1.7;font-weight:300">We tell you your car's value and the top-up (if any) you need to pay to complete the swap.</div>
+      </div>
+      <div class="swap-policy-step">
+        <div style="width:34px;height:34px;border-radius:50%;background:var(--red);color:var(--white);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:14px">4</div>
+        <div style="font-size:14px;font-weight:700;color:rgba(255,255,255,.85);margin-bottom:6px">Drive Away Happy</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.35);line-height:1.7;font-weight:300">Pay the balance, hand over your car, collect your new one &mdash; fully verified and registered.</div>
+      </div>
+    </div>
+ 
+    <!-- NOTE -->
+    <div style="display:flex;align-items:flex-start;gap:16px;background:rgba(200,16,46,.1);border:1.5px solid rgba(200,16,46,.2);border-radius:14px;padding:20px 24px">
+      <div style="width:38px;height:38px;background:var(--red);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
+      <div>
+        <div style="font-size:14px;font-weight:700;color:rgba(255,255,255,.9);margin-bottom:5px">No asking price required from you</div>
+        <p style="font-size:13px;color:rgba(255,255,255,.45);line-height:1.7;font-weight:300;margin:0">Just describe your car honestly &mdash; including any faults or issues. The more accurate your details and photos, the faster we can value your car and get you the best deal. Our team handles all pricing fairly and transparently.</p>
+      </div>
+    </div>
+ 
+  </div>
+</div>
 <!-- MAIN LAYOUT -->
 <div class="swap-layout">
 
@@ -584,15 +707,10 @@ footer{background:var(--dark);padding:52px 0 0}
         <div class="form-row full">
           <div class="form-group">
             <label>Any Issues / Faults?</label>
-            <textarea id="my_issues" class="form-input" rows="3" placeholder="e.g. minor scratch on bumper, AC needs regas, engine light on... (be honest — it helps us value your car accurately)"></textarea>
+            <textarea id="my_issues" class="form-input" rows="3" placeholder="e.g. minor scratch on bumper, AC needs regas, engine light on... (be honest  it helps us value your car accurately)"></textarea>
           </div>
         </div>
-        <div class="form-row full">
-          <div class="form-group">
-            <label>Your Asking Value (optional)</label>
-            <input type="text" id="my_value" class="form-input" placeholder="e.g. ₦4,500,000 or leave blank if unsure" inputmode="numeric">
-          </div>
-        </div>
+        
 
         <!-- PHOTO UPLOAD - MY CAR -->
         <div class="form-row full">
@@ -694,7 +812,7 @@ footer{background:var(--dark);padding:52px 0 0}
             <label>Max Budget Top-Up</label>
             <select id="want_topup" class="form-input">
               <option value="">Select range</option>
-              <option>No top-up — straight swap only</option>
+              <option>No top-up  straight swap only</option>
               <option>Up to ₦500K</option>
               <option>₦500K – ₦1M</option>
               <option>₦1M – ₦3M</option>
@@ -782,7 +900,7 @@ footer{background:var(--dark);padding:52px 0 0}
       <div class="info-card-body">
         <div class="info-item">
           <div class="info-icon red"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
-          <div class="info-text"><strong>Fair Valuation</strong><span>We give you an honest, competitive value for your current car — no lowball offers.</span></div>
+          <div class="info-text"><strong>Fair Valuation</strong><span>We give you an honest, competitive value for your current car  no lowball offers.</span></div>
         </div>
         <div class="info-item">
           <div class="info-icon gray"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gray-700)" stroke-width="2"><circle cx="12" cy="12" r="9"/><polyline points="12 8 12 12 14 14"/></svg></div>
@@ -798,7 +916,7 @@ footer{background:var(--dark);padding:52px 0 0}
         </div>
         <div class="info-item">
           <div class="info-icon red"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
-          <div class="info-text"><strong>15+ Years Experience</strong><span>Hundreds of successful swaps done across Nigeria.</span></div>
+          <div class="info-text"><strong>11+ Years Experience</strong><span>Hundreds of successful swaps done across Nigeria.</span></div>
         </div>
       </div>
     </div>
@@ -806,7 +924,7 @@ footer{background:var(--dark);padding:52px 0 0}
     <div class="wa-card reveal" style="transition-delay:.1s">
       <h3>Prefer to Chat?</h3>
       <p>Skip the form and reach us directly on WhatsApp. Send us photos of your car and we'll get the ball rolling immediately.</p>
-      <a href="https://wa.me/2347069341321?text=Hello%20JMK%20Autos!%20I%20want%20to%20swap%20my%20car." target="_blank" class="wa-btn">
+      <a href="https://wa.me/2348130726265?text=Hello%20JMK%20Autos!%20I%20want%20to%20swap%20my%20car." target="_blank" class="wa-btn">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.853L.057 23.629a.5.5 0 00.614.614l5.776-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.969 0-3.809-.578-5.352-1.569l-.383-.24-3.43.877.893-3.35-.263-.404A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
         Chat on WhatsApp
       </a>
@@ -817,7 +935,7 @@ footer{background:var(--dark);padding:52px 0 0}
 <!-- WA FAB -->
 <div class="wa-fab">
   <div class="wa-fab-tooltip">Chat with us on WhatsApp</div>
-  <a href="https://wa.me/2347069341321?text=Hello%20JMK%20Autos!%20I%20want%20to%20swap%20my%20car." target="_blank" class="wa-fab-btn">
+  <a href="https://wa.me/2348130726265?text=Hello%20JMK%20Autos!%20I%20want%20to%20swap%20my%20car." target="_blank" class="wa-fab-btn">
     <svg viewBox="0 0 24 24" fill="white" width="26" height="26"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.853L.057 23.629a.5.5 0 00.614.614l5.776-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.969 0-3.809-.578-5.352-1.569l-.383-.24-3.43.877.893-3.35-.263-.404A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
   </a>
 </div>
@@ -837,14 +955,14 @@ footer{background:var(--dark);padding:52px 0 0}
         <div class="footer-socials">
           <a href="https://www.facebook.com/share/18ZRnTTtDp/?mibextid=wwXIfr" class="footer-social"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
           <a href="https://www.instagram.com/jmkautos1" class="footer-social"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-          <a href="https://wa.me/2347069341321" target="_blank" class="footer-social"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.853L.057 23.629a.5.5 0 00.614.614l5.776-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.969 0-3.809-.578-5.352-1.569l-.383-.24-3.43.877.893-3.35-.263-.404A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg></a>
+          <a href="https://wa.me/2348130726265" target="_blank" class="footer-social"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.853L.057 23.629a.5.5 0 00.614.614l5.776-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.969 0-3.809-.578-5.352-1.569l-.383-.24-3.43.877.893-3.35-.263-.404A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg></a>
         </div>
       </div>
       <div class="footer-col"><h4>Navigation</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="inventory.html">Inventory</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a href="preorder.html">Preorder</a></li><li><a href="swap.html">Swap</a></li></ul></div>
       <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a href="inventory.html">Buy a Car</a></li><li><a href="services.html">Sell Your Car</a></li><li><a href="swap.html">Car Swap</a></li><li><a href="services.html">Installment Plans</a></li><li><a href="preorder.html">Pre-Order</a></li></ul></div>
       <div class="footer-col"><h4>Contact</h4>
         <div class="footer-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>Ikotun Egbe, Lagos State</div>
-        <div class="footer-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><a href="tel:+2347069341321">+234 706 934 1321</a></div>
+        <div class="footer-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><a href="tel:+2348130726265">+234 813 072 6265</a></div>
         <div class="footer-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg><a href="mailto:info@jmkautos.com">info@jmkautos.com</a></div>
         <div class="footer-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>Mon–Sat: 9:00am–6:00pm</div>
       </div>
@@ -1024,14 +1142,14 @@ function submitSwap() {
     (wantNotes ? `\n📝 *Notes:* ${wantNotes}` : '')
   );
 
-  window.open('https://wa.me/2347069341321?text=' + msg, '_blank');
+  window.open('https://wa.me/2348130726265?text=' + msg, '_blank');
 
   // Show success
   document.getElementById('stepTabs').style.display = 'none';
   document.getElementById('step-3').style.display = 'none';
   document.getElementById('progressBar').style.width = '100%';
   document.getElementById('successRef').textContent = 'REF: ' + refNum;
-  document.getElementById('waFollowUpBtn').href = 'https://wa.me/2347069341321?text=' + msg;
+  document.getElementById('waFollowUpBtn').href = 'https://wa.me/2348130726265?text=' + msg;
   document.getElementById('successState').classList.add('show');
   document.querySelector('.form-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }

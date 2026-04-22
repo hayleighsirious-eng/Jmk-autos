@@ -38,24 +38,17 @@
   --ease: cubic-bezier(0.4,0,0.2,1);
   --spring: cubic-bezier(0.34,1.56,0.64,1);
 
-  /* Heights used for offset calculations */
   --topbar-h: 40px;
   --navbar-h: 64px;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-
-/* CRITICAL: prevent horizontal overflow on ALL elements */
-html, body {
-  overflow-x: hidden;
-  max-width: 100%;
-}
+html, body { overflow-x: hidden; max-width: 100%; }
 body {
   font-family: var(--font-b);
   background: var(--gray-100);
   color: var(--dark);
   line-height: 1.6;
-  /* offset for fixed topbar + navbar */
   padding-top: calc(var(--topbar-h) + var(--navbar-h));
 }
 img { display: block; max-width: 100%; }
@@ -71,13 +64,11 @@ select, input { font-family: var(--font-b); max-width: 100%; }
 #loader.gone { opacity: 0; visibility: hidden; pointer-events: none; }
 
 /* ─────────────────────────────────────
-   TOPBAR  — now FIXED
+   TOPBAR
 ───────────────────────────────────── */
 .topbar {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   z-index: 1001;
   height: var(--topbar-h);
   background: var(--dark-2);
@@ -92,13 +83,11 @@ select, input { font-family: var(--font-b); max-width: 100%; }
 .tb-cta:hover { background: var(--red-dark); transform: translateY(-1px); }
 
 /* ─────────────────────────────────────
-   NAVBAR  — now FIXED (below topbar)
+   NAVBAR
 ───────────────────────────────────── */
 .navbar {
   position: fixed;
-  top: var(--topbar-h);
-  left: 0;
-  right: 0;
+  top: var(--topbar-h); left: 0; right: 0;
   z-index: 1000;
   height: var(--navbar-h);
   background: rgba(255,255,255,.97);
@@ -161,7 +150,6 @@ select, input { font-family: var(--font-b); max-width: 100%; }
 /* ─────────────────────────────────────
    SIDEBAR FILTERS
 ───────────────────────────────────── */
-/* Sidebar sticky offset accounts for fixed navbar only (topbar hidden on desktop scroll) */
 .sidebar {
   position: sticky;
   top: calc(var(--topbar-h) + var(--navbar-h) + 12px);
@@ -198,7 +186,6 @@ select, input { font-family: var(--font-b); max-width: 100%; }
 .filter-search input { border: none; outline: none; font-size: 13px; color: var(--dark); width: 100%; background: transparent; min-width: 0; }
 .filter-search input::placeholder { color: var(--gray-400); }
 
-/* Active filter chips */
 .active-filters { display: flex; flex-wrap: wrap; gap: 8px; padding: 14px 20px; border-bottom: 1px solid var(--gray-200); }
 .active-filters:empty { display: none; }
 .filter-chip { display: flex; align-items: center; gap: 6px; background: var(--red-light); border: 1px solid rgba(200,16,46,.2); color: var(--red); font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 100px; }
@@ -208,8 +195,6 @@ select, input { font-family: var(--font-b); max-width: 100%; }
 /* ─────────────────────────────────────
    MAIN CONTENT AREA
 ───────────────────────────────────── */
-
-/* Toolbar */
 .inv-toolbar { background: var(--white); border-radius: var(--r-lg); border: 1.5px solid var(--gray-200); padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
 .inv-toolbar-left { display: flex; align-items: center; gap: 10px; }
 .inv-count { font-size: 13px; color: var(--gray-500); }
@@ -219,7 +204,6 @@ select, input { font-family: var(--font-b); max-width: 100%; }
 .sort-select { padding: 8px 28px 8px 10px; border: 1.5px solid var(--gray-200); border-radius: var(--r-sm); font-size: 13px; font-weight: 500; color: var(--gray-700); background: var(--white); outline: none; cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236B7280' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 9px center; transition: border-color .2s; max-width: 100%; }
 .sort-select:focus { border-color: var(--red); }
 
-/* View toggle buttons — hidden on mobile */
 .view-btns { display: flex; gap: 4px; }
 .view-btn { width: 36px; height: 36px; border: 1.5px solid var(--gray-200); border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; color: var(--gray-400); transition: all .2s; }
 .view-btn.active { background: var(--dark); border-color: var(--dark); color: var(--white); }
@@ -231,17 +215,14 @@ select, input { font-family: var(--font-b); max-width: 100%; }
 .cars-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
 .cars-grid.list-view { grid-template-columns: 1fr; }
 
-/* Card */
 .car-card { background: var(--white); border-radius: var(--r-lg); overflow: hidden; border: 1.5px solid var(--gray-200); transition: transform .3s var(--ease), box-shadow .3s, border-color .3s; position: relative; }
 .car-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,.1); border-color: rgba(200,16,46,.25); }
 
-/* List view card */
 .cars-grid.list-view .car-card { display: flex; flex-direction: row; }
 .cars-grid.list-view .car-card-img { width: 260px; min-width: 260px; height: auto; aspect-ratio: 4/3; }
 .cars-grid.list-view .car-card-body { flex: 1; display: flex; flex-direction: column; min-width: 0; }
 .cars-grid.list-view .car-card-footer { margin-top: auto; }
 
-/* Image wrapper */
 .car-card-img { position: relative; height: 195px; overflow: hidden; background: var(--gray-100); }
 .car-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; display: block; }
 .car-card:hover .car-card-img img { transform: scale(1.05); }
@@ -249,7 +230,6 @@ select, input { font-family: var(--font-b); max-width: 100%; }
 .car-card-img-placeholder svg { opacity: .25; }
 .car-card-img-placeholder span { font-size: 12px; color: var(--gray-400); font-weight: 500; }
 
-/* Badges */
 .car-status-badge { position: absolute; top: 10px; left: 10px; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 9px; border-radius: 100px; z-index: 2; }
 .badge-available { background: #D1FAE5; color: #065F46; }
 .badge-sold { background: #FEE2E2; color: #991B1B; }
@@ -272,7 +252,6 @@ select, input { font-family: var(--font-b); max-width: 100%; }
 .btn-consult:hover { background: var(--red); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(200,16,46,.3); }
 .btn-consult svg, .btn-detail svg { width: 12px; height: 12px; }
 
-/* Skeleton */
 .skeleton-card { background: var(--white); border-radius: var(--r-lg); overflow: hidden; border: 1.5px solid var(--gray-200); }
 .skeleton-img { height: 195px; background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; }
 .skeleton-body { padding: 16px 18px; }
@@ -281,7 +260,6 @@ select, input { font-family: var(--font-b); max-width: 100%; }
 .skeleton-line.medium { width: 70%; }
 @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 
-/* Empty */
 .cars-empty { grid-column: 1/-1; text-align: center; padding: 60px 24px; background: var(--white); border-radius: var(--r-lg); border: 1.5px solid var(--gray-200); }
 .cars-empty svg { margin: 0 auto 18px; opacity: .25; }
 .cars-empty h3 { font-size: 18px; font-weight: 700; color: var(--gray-700); margin-bottom: 8px; }
@@ -362,42 +340,24 @@ footer { background: var(--dark); padding: 52px 0 0; }
    RESPONSIVE — MOBILE (≤768px)
 ───────────────────────────────────── */
 @media (max-width: 768px) {
-  /* Topbar hidden on mobile — reduce body offset to navbar only */
   .topbar { display: none; }
   body { padding-top: var(--navbar-h); }
-
-  /* Navbar sits at top when topbar is hidden */
   .navbar { top: 0; }
-
-  /* Sidebar sticky offset: only navbar on mobile */
   .sidebar { top: calc(var(--navbar-h) + 12px); }
-
-  /* Navbar */
   .nav-links, .nav-actions .nav-btn-consult { display: none; }
   .hamburger { display: flex; }
   .nav-inner { height: 58px; }
-
-  /* Hero */
   .page-hero { padding: 28px 0 22px; }
   .page-hero-stats { gap: 20px; }
   .ph-stat-num { font-size: 24px; }
-
-  /* View toggle HIDDEN on mobile */
   .view-btns { display: none; }
-
-  /* Toolbar */
   .inv-toolbar { flex-direction: row; align-items: center; padding: 12px 14px; }
   .inv-toolbar-left { flex: 1; gap: 8px; }
   .inv-toolbar-right { gap: 8px; }
-
-  /* Grid: single column on mobile */
   .cars-grid { grid-template-columns: 1fr; gap: 14px; }
-  /* Force grid view on mobile regardless of toggle state */
   .cars-grid.list-view { grid-template-columns: 1fr; }
   .cars-grid.list-view .car-card { flex-direction: column; }
   .cars-grid.list-view .car-card-img { width: 100%; min-width: unset; height: 195px; aspect-ratio: unset; }
-
-  /* Footer */
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
   .footer-bottom { flex-direction: column; text-align: center; }
 }
@@ -444,14 +404,14 @@ footer { background: var(--dark); padding: 52px 0 0; }
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
         Ikotun Egbe, Lagos State
       </a>
-      <a href="tel:+2347069341321" class="tb-item">
+      <a href="tel:+2348130726265" class="tb-item">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-        +234 706 934 1321
+        +234 813 072 6265
       </a>
     </div>
     <div class="tb-right">
       <span class="tb-item" style="font-size:12px">Mon–Sat &nbsp;|&nbsp; 9am–6pm</span>
-      <a href="https://wa.me/2347069341321?text=Hello%20JMK%20Autos!%20I'd%20like%20to%20enquire%20about%20a%20vehicle." target="_blank" class="tb-cta">
+      <a href="https://wa.me/2348130726265?text=Hello%20JMK%20Autos!%20I'd%20like%20to%20enquire%20about%20a%20vehicle." target="_blank" class="tb-cta">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.853L.057 23.629a.5.5 0 00.614.614l5.776-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.969 0-3.809-.578-5.352-1.569l-.383-.24-3.43.877.893-3.35-.263-.404A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
         WhatsApp Us
       </a>
@@ -480,7 +440,7 @@ footer { background: var(--dark); padding: 52px 0 0; }
       <li><a href="swap.html">swap</a></li>
     </ul>
     <div class="nav-actions">
-      <a href="https://wa.me/2347069341321?text=Hello%20JMK%20Autos!%20I'm%20interested%20in%20a%20vehicle." target="_blank" class="nav-btn-consult">
+      <a href="https://wa.me/2348130726265?text=Hello%20JMK%20Autos!%20I'm%20interested%20in%20a%20vehicle." target="_blank" class="nav-btn-consult">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.853L.057 23.629a.5.5 0 00.614.614l5.776-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.969 0-3.809-.578-5.352-1.569l-.383-.24-3.43.877.893-3.35-.263-.404A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
         Enquire Now
       </a>
@@ -501,7 +461,7 @@ footer { background: var(--dark); padding: 52px 0 0; }
   <a href="contact.html">Contact</a>
   <a href="preorder.html">Preorder</a>
   <a href="swap.html">Swap</a>
-  <a href="https://wa.me/2347069341321" target="_blank" class="mobile-nav-wa">
+  <a href="https://wa.me/2348130726265" target="_blank" class="mobile-nav-wa">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.853L.057 23.629a.5.5 0 00.614.614l5.776-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.969 0-3.809-.578-5.352-1.569l-.383-.24-3.43.877.893-3.35-.263-.404A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
     Chat on WhatsApp
   </a>
@@ -517,7 +477,7 @@ footer { background: var(--dark); padding: 52px 0 0; }
       <span style="color:white;font-weight:800">Inventory</span>
     </div>
     <h1 class="page-hero-title">Our Inventory</h1>
-    <p class="page-hero-sub">Browse our full range of quality vehicles  Foreign Used, Nigerian Used &amp; Brand New.</p>
+    <p class="page-hero-sub">Browse our full range of quality vehicles — Foreign Used, Nigerian Used &amp; Brand New.</p>
     <div class="page-hero-stats">
       <div>
         <div class="ph-stat-num" id="totalCount">—</div>
@@ -567,6 +527,27 @@ footer { background: var(--dark); padding: 52px 0 0; }
       </div>
     </div>
 
+    <!-- ═══════════════════════════════════
+         VEHICLE TYPE  ← NEW
+    ════════════════════════════════════ -->
+    <div class="filter-section">
+      <div class="filter-label" onclick="toggleSection(this)">Vehicle Type <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+      <div class="filter-body">
+        <label class="filter-check">
+          <input type="checkbox" value="car" onchange="applyFilters()">
+          <span class="filter-check-label">Cars</span>
+        </label>
+        <label class="filter-check">
+          <input type="checkbox" value="tricycle" onchange="applyFilters()">
+          <span class="filter-check-label">Keke / Tricycle</span>
+        </label>
+        <label class="filter-check">
+          <input type="checkbox" value="truck" onchange="applyFilters()">
+          <span class="filter-check-label">Trucks</span>
+        </label>
+      </div>
+    </div>
+
     <!-- Condition -->
     <div class="filter-section">
       <div class="filter-label" onclick="toggleSection(this)">Condition <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
@@ -593,6 +574,15 @@ footer { background: var(--dark); padding: 52px 0 0; }
         <label class="filter-check"><input type="checkbox" value="Volkswagen" onchange="applyFilters()"><span class="filter-check-label">Volkswagen</span></label>
         <label class="filter-check"><input type="checkbox" value="Range Rover" onchange="applyFilters()"><span class="filter-check-label">Range Rover</span></label>
         <label class="filter-check"><input type="checkbox" value="Mitsubishi" onchange="applyFilters()"><span class="filter-check-label">Mitsubishi</span></label>
+        <label class="filter-check"><input type="checkbox" value="Bajaj" onchange="applyFilters()"><span class="filter-check-label">Bajaj</span></label>
+        <label class="filter-check"><input type="checkbox" value="TVS" onchange="applyFilters()"><span class="filter-check-label">TVS</span></label>
+        <label class="filter-check"><input type="checkbox" value="Piaggio" onchange="applyFilters()"><span class="filter-check-label">Piaggio</span></label>
+        <label class="filter-check"><input type="checkbox" value="Qlink" onchange="applyFilters()"><span class="filter-check-label">Qlink</span></label>
+        <label class="filter-check"><input type="checkbox" value="Mack" onchange="applyFilters()"><span class="filter-check-label">Mack</span></label>
+        <label class="filter-check"><input type="checkbox" value="Volvo" onchange="applyFilters()"><span class="filter-check-label">Volvo</span></label>
+        <label class="filter-check"><input type="checkbox" value="Isuzu" onchange="applyFilters()"><span class="filter-check-label">Isuzu</span></label>
+        <label class="filter-check"><input type="checkbox" value="Hino" onchange="applyFilters()"><span class="filter-check-label">Hino</span></label>
+        <label class="filter-check"><input type="checkbox" value="Sinotruk" onchange="applyFilters()"><span class="filter-check-label">Sinotruk</span></label>
       </div>
     </div>
 
@@ -680,7 +670,6 @@ footer { background: var(--dark); padding: 52px 0 0; }
           <option value="year-asc">Year: Low–High</option>
           <option value="mileage-asc">Mileage: Low–High</option>
         </select>
-        <!-- View toggle: hidden on mobile via CSS -->
         <div class="view-btns">
           <button class="view-btn active" id="gridViewBtn" onclick="setView('grid')" title="Grid view">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h7v7H3V3zm11 0h7v7h-7V3zm-11 11h7v7H3v-7zm11 0h7v7h-7v-7z"/></svg>
@@ -711,7 +700,7 @@ footer { background: var(--dark); padding: 52px 0 0; }
 <!-- WA FAB -->
 <div class="wa-fab">
   <div class="wa-fab-tooltip">Chat with us on WhatsApp</div>
-  <a href="https://wa.me/2347069341321?text=Hello%20JMK%20Autos!%20I%20am%20interested%20in%20a%20vehicle." target="_blank" class="wa-fab-btn">
+  <a href="https://wa.me/2348130726265?text=Hello%20JMK%20Autos!%20I%20am%20interested%20in%20a%20vehicle." target="_blank" class="wa-fab-btn">
     <svg viewBox="0 0 24 24" fill="white" width="26" height="26"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.853L.057 23.629a.5.5 0 00.614.614l5.776-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.969 0-3.809-.578-5.352-1.569l-.383-.24-3.43.877.893-3.35-.263-.404A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
   </a>
 </div>
@@ -731,14 +720,14 @@ footer { background: var(--dark); padding: 52px 0 0; }
         <div class="footer-socials">
           <a href="https://www.facebook.com/share/18ZRnTTtDp/?mibextid=wwXIfr" class="footer-social"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
           <a href="https://www.instagram.com/jmkautos1?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="footer-social"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-          <a href="https://wa.me/2347069341321" target="_blank" class="footer-social"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.853L.057 23.629a.5.5 0 00.614.614l5.776-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.969 0-3.809-.578-5.352-1.569l-.383-.24-3.43.877.893-3.35-.263-.404A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg></a>
+          <a href="https://wa.me/2348130726265" target="_blank" class="footer-social"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.853L.057 23.629a.5.5 0 00.614.614l5.776-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.969 0-3.809-.578-5.352-1.569l-.383-.24-3.43.877.893-3.35-.263-.404A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg></a>
         </div>
       </div>
       <div class="footer-col"><h4>Navigation</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="inventory.html">Inventory</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a href="preorder.html">Preorder</a></li><li><a href="swap.html">Swap</a></li></ul></div>
       <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a href="inventory.html">Buy a Car</a></li><li><a href="services.html">Sell Your Car</a></li><li><a href="services.html">Car Swap</a></li><li><a href="services.html">Installment Plans</a></li><li><a href="services.html">Vehicle Inspection</a></li></ul></div>
       <div class="footer-col"><h4>Contact</h4>
         <div class="footer-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>Ikotun Egbe, Lagos State</div>
-        <div class="footer-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><a href="tel:+2347069341321">+234 706 934 1321</a></div>
+        <div class="footer-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><a href="tel:+2348130726265">+234 813 072 6265</a></div>
         <div class="footer-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg><a href="mailto:info@jmkautos.com">info@jmkautos.com</a></div>
         <div class="footer-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>Mon–Sat: 9:00am–6:00pm</div>
       </div>
@@ -813,7 +802,7 @@ function buildCard(car) {
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
               View
             </a>
-            <a href="https://wa.me/2347069341321?text=${waMsg}" target="_blank" class="btn-consult">
+            <a href="https://wa.me/2348130726265?text=${waMsg}" target="_blank" class="btn-consult">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.853L.057 23.629a.5.5 0 00.614.614l5.776-1.475A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.969 0-3.809-.578-5.352-1.569l-.383-.24-3.43.877.893-3.35-.263-.404A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
               Consult
             </a>
@@ -825,36 +814,44 @@ function buildCard(car) {
 
 /* ─── FILTERS ────────────────────────────── */
 function applyFilters() {
-  const search = document.getElementById('searchInput')?.value.toLowerCase().trim() || '';
-  const yearFrom = parseInt(document.getElementById('yearFrom')?.value) || 0;
-  const yearTo = parseInt(document.getElementById('yearTo')?.value) || 9999;
-  const sort = document.getElementById('sortSelect')?.value || 'newest';
+  const search     = document.getElementById('searchInput')?.value.toLowerCase().trim() || '';
+  const yearFrom   = parseInt(document.getElementById('yearFrom')?.value) || 0;
+  const yearTo     = parseInt(document.getElementById('yearTo')?.value) || 9999;
+  const sort       = document.getElementById('sortSelect')?.value || 'newest';
 
   const checked = [...document.querySelectorAll('input[type=checkbox]:checked')].map(el => el.value);
-  const conditions    = checked.filter(v => ['Foreign Used','Nigerian Used','Brand New'].includes(v));
-  const brands        = checked.filter(v => ['Toyota','Mercedes-Benz','Lexus','Honda','Nissan','BMW','Ford','Hyundai','Kia','Volkswagen','Range Rover','Mitsubishi'].includes(v));
-  const bodies        = checked.filter(v => ['SUV','Sedan','Truck','Van','Coupe','Hatchback'].includes(v));
-  const fuels         = checked.filter(v => ['Gasoline','Diesel','Hybrid','Electric'].includes(v));
-  const transmissions = checked.filter(v => ['Automatic','Manual'].includes(v));
-  const statuses      = checked.filter(v => ['available','reserved','sold'].includes(v));
+
+  /* ── Vehicle Type ── NEW ── */
+  const vehicleTypes   = checked.filter(v => ['car','tricycle','truck'].includes(v));
+
+  const conditions     = checked.filter(v => ['Foreign Used','Nigerian Used','Brand New'].includes(v));
+  const brands         = checked.filter(v => ['Toyota','Mercedes-Benz','Lexus','Honda','Nissan','BMW','Ford','Hyundai','Kia','Volkswagen','Range Rover','Mitsubishi','Bajaj','TVS','Piaggio','Qlink','Mack','Volvo','Isuzu','Hino','Sinotruk'].includes(v));
+  const bodies         = checked.filter(v => ['SUV','Sedan','Truck','Van','Coupe','Hatchback'].includes(v));
+  const fuels          = checked.filter(v => ['Gasoline','Diesel','Hybrid','Electric'].includes(v));
+  const transmissions  = checked.filter(v => ['Automatic','Manual'].includes(v));
+  const statuses       = checked.filter(v => ['available','reserved','sold'].includes(v));
 
   filteredCars = allCars.filter(car => {
     if (search && !car.title.toLowerCase().includes(search) && !(car.brand||'').toLowerCase().includes(search)) return false;
-    if (conditions.length && !conditions.includes(car.condition)) return false;
-    if (brands.length && !brands.includes(car.brand)) return false;
-    if (bodies.length && !bodies.includes(car.body_type)) return false;
-    if (fuels.length && !fuels.includes(car.fuel_type)) return false;
+
+    /* ── Vehicle Type check ── NEW ── */
+    if (vehicleTypes.length && !vehicleTypes.includes(car.vehicle_type || 'car')) return false;
+
+    if (conditions.length    && !conditions.includes(car.condition))       return false;
+    if (brands.length        && !brands.includes(car.brand))               return false;
+    if (bodies.length        && !bodies.includes(car.body_type))           return false;
+    if (fuels.length         && !fuels.includes(car.fuel_type))            return false;
     if (transmissions.length && !transmissions.includes(car.transmission)) return false;
-    if (statuses.length && !statuses.includes(car.status)) return false;
-    if (car.year && (car.year < yearFrom || car.year > yearTo)) return false;
+    if (statuses.length      && !statuses.includes(car.status))            return false;
+    if (car.year && (car.year < yearFrom || car.year > yearTo))            return false;
     return true;
   });
 
   filteredCars.sort((a, b) => {
-    if (sort === 'newest') return new Date(b.created_at) - new Date(a.created_at);
-    if (sort === 'oldest') return new Date(a.created_at) - new Date(b.created_at);
-    if (sort === 'year-desc') return (b.year||0) - (a.year||0);
-    if (sort === 'year-asc') return (a.year||0) - (b.year||0);
+    if (sort === 'newest')      return new Date(b.created_at) - new Date(a.created_at);
+    if (sort === 'oldest')      return new Date(a.created_at) - new Date(b.created_at);
+    if (sort === 'year-desc')   return (b.year||0) - (a.year||0);
+    if (sort === 'year-asc')    return (a.year||0) - (b.year||0);
     if (sort === 'mileage-asc') return (a.mileage||0) - (b.mileage||0);
     return 0;
   });
@@ -882,7 +879,8 @@ function removeFilter(val) {
 
 function clearAllFilters() {
   document.querySelectorAll('input[type=checkbox]').forEach(el => {
-    el.checked = el.value === 'available';
+    /* keep 'available' checked; reset 'car' vehicle type to default checked */
+    el.checked = (el.value === 'available');
   });
   document.querySelectorAll('select').forEach(el => {
     if (el.id !== 'sortSelect') el.value = '';
@@ -990,7 +988,7 @@ async function loadCars() {
 
 /* ─── MOBILE FILTER DRAWER ───────────────── */
 document.addEventListener('DOMContentLoaded', () => {
-  const sidebarMobile = document.getElementById('sidebarMobile');
+  const sidebarMobile  = document.getElementById('sidebarMobile');
   const sidebarDesktop = document.getElementById('sidebarDesktop');
   sidebarMobile.innerHTML = sidebarDesktop.innerHTML;
 
@@ -1040,8 +1038,8 @@ window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
 }, { passive: true });
 
-const hamburger = document.getElementById('hamburger');
-const mobileNav = document.getElementById('mobileNav');
+const hamburger  = document.getElementById('hamburger');
+const mobileNav  = document.getElementById('mobileNav');
 const mobileClose = document.getElementById('mobileClose');
 hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('open');
@@ -1059,9 +1057,9 @@ mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   document.body.style.overflow = '';
 }));
 
-// Pre-filter from URL param
+/* ─── PRE-FILTER FROM URL PARAM ─────────── */
 const urlParams = new URLSearchParams(window.location.search);
-const urlBrand = urlParams.get('brand');
+const urlBrand  = urlParams.get('brand');
 if (urlBrand) {
   window.addEventListener('load', () => {
     document.querySelectorAll(`input[type=checkbox][value="${urlBrand}"]`).forEach(el => el.checked = true);
